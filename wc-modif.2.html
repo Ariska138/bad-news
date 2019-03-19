@@ -13,38 +13,38 @@
   <header>
     <h1>Berita Terkini</h1>
   </header>
+  <main>
   <my-card my-title='Apple now sells five different iPads - The Verge'
       my-author='Cameron Faulkner'
       my-image='https://cdn.vox-cdn.com/thumbor/9dhCm57j8BxAXESWQRWKhf7j7Vw=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/7723631/jbareham_160329_1003_0050_2016.0.jpeg'
       my-desripsi='Recommending an iPad used to be simpler. White or … two different connectors and two different Appl…'
       my-url='https://www.theverge.com/tldr/2019/3/19/18271636/apple-five-ipads-ipad-pro-mini-air'
   >
-
+</my-card>
   <my-card my-title='Apple now sells five different iPads - The Verge'
       my-author='Cameron Faulkner'
       my-image='https://cdn.vox-cdn.com/thumbor/9dhCm57j8BxAXESWQRWKhf7j7Vw=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/7723631/jbareham_160329_1003_0050_2016.0.jpeg'
       my-desripsi='Recommending an iPad used to be simpler. White or … two different connectors and two different Appl…'
       my-url='https://www.theverge.com/tldr/2019/3/19/18271636/apple-five-ipads-ipad-pro-mini-air'
   >
-
+</my-card>
   <my-card my-title='Apple now sells five different iPads - The Verge'
       my-author='Cameron Faulkner'
       my-image='https://cdn.vox-cdn.com/thumbor/9dhCm57j8BxAXESWQRWKhf7j7Vw=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/7723631/jbareham_160329_1003_0050_2016.0.jpeg'
       my-desripsi='Recommending an iPad used to be simpler. White or … two different connectors and two different Appl…'
       my-url='https://www.theverge.com/tldr/2019/3/19/18271636/apple-five-ipads-ipad-pro-mini-air'
   >
-
+</my-card>
   <my-card my-title='Apple now sells five different iPads - The Verge'
       my-author='Cameron Faulkner'
       my-image='https://cdn.vox-cdn.com/thumbor/9dhCm57j8BxAXESWQRWKhf7j7Vw=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/7723631/jbareham_160329_1003_0050_2016.0.jpeg'
       my-desripsi='Recommending an iPad used to be simpler. White or … two different connectors and two different Appl…'
       my-url='https://www.theverge.com/tldr/2019/3/19/18271636/apple-five-ipads-ipad-pro-mini-air'
   >
-
   </my-card>
+</main>
 
-  <script type="module">
-    import  './news-article-element.js';
+  <script>
 customElements.define('my-card', class MyCardClass extends HTMLElement {
 
   connectedCallback() {
@@ -59,9 +59,27 @@ customElements.define('my-card', class MyCardClass extends HTMLElement {
   
   };
 
-    const el = document.createElement('news-article');
-    el.article = dummy;
-    this.appendChild(el);
+  this.innerHTML = `
+          <style>
+           h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+          }
+          
+           a,
+           a:visited {
+            text-decoration: none;
+            color: inherit;
+          }
+          
+           img {
+            width: 100%;
+          }
+          </style>
+          <a href="${dummy.url}">
+            <h2>${dummy.title}</h2>
+            <img src="${dummy.urlToImage ? dummy.urlToImage : ''}">
+            <p>${dummy.description}</p>
+          </a>`;
   }
 });
   </script>
