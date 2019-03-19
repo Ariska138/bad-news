@@ -1,1 +1,1 @@
-Demo PWA app.
+Demo Non PWA app.

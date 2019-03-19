@@ -3,7 +3,6 @@ import { topHeadlinesUrl } from './newsApi.js';
 
 window.addEventListener('load', () => {
   getNews();
-  // registerSW();
 });
 
 async function getNews() {
@@ -18,13 +17,3 @@ async function getNews() {
     main.appendChild(el);
   });
 }
-
-// async function registerSW() {
-//   if ('serviceWorker' in navigator) {
-//     try {
-//       await navigator.serviceWorker.register('./sw.js');
-//     } catch (e) {
-//       console.log(`SW registration failed`);
-//     }
-//   }
-// }
