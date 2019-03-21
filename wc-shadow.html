@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Berita Terkini</title>
+</head>
+
+<body>
+  <header>
+    <h1>Berita Terkini</h1>
+  </header>
+  <my-card animation="shine">
+      <my-title>Apple now sells five different iPads - The Verge</my-title>
+      <my-author>Cameron Faulkner</my-author>
+      <my-image>https://cdn.vox-cdn.com/thumbor/9dhCm57j8BxAXESWQRWKhf7j7Vw=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/7723631/jbareham_160329_1003_0050_2016.0.jpeg</my-image>
+      <my-desripsi>Recommending an iPad used to be simpler. White or … two different connectors and two different Appl…</my-desripsi>
+      <my-url>https://www.theverge.com/tldr/2019/3/19/18271636/apple-five-ipads-ipad-pro-mini-air</my-url>
+  </my-card>
+
+  <script>
+customElements.define('my-card', class MyCardClass extends HTMLElement {
+  /**
+   * `connectedCallback` is a custom-element lifecycle callback
+   * which fires whenever the element is added to the document
+   */
+  connectedCallback() {
+    this.style.display = 'block';
+    this.setAttribute('aria-label', this.innerText);
+  }
+
+});
+
+customElements.define('my-title', class MyCardClass extends HTMLElement {
+  /**
+   * `connectedCallback` is a custom-element lifecycle callback
+   * which fires whenever the element is added to the document
+   */
+  connectedCallback() {
+    this.style.display = 'block';
+    this.setAttribute('aria-label', this.innerText);
+  }
+
+});
+
+customElements.define('my-author', class MyAuthorClass extends HTMLElement {
+
+  constructor() {
+        super();
+        this.attachShadow({ mode: "open" });
+    }
+
+  /**
+   * `connectedCallback` is a custom-element lifecycle callback
+   * which fires whenever the element is added to the document
+   */
+  connectedCallback() {
+    this.style.display = 'block';
+    this.setAttribute('aria-label', this.innerText);
+    this.shadowRoot.innerHTML = `
+          <style>
+           h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+          }
+          
+           a,
+           a:visited {
+            text-decoration: none;
+            color: inherit;
+          }
+          
+           img {
+            width: 100%;
+          }
+          </style>
+          <small>Penyusun adalah <slot></slot></small>`;
+  }
+
+});
+  </script>
+</body>
+
+</html>
